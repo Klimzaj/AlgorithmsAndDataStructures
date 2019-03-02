@@ -10,7 +10,7 @@ int main()
     vector<int> tab(255);
 
   string line;
-  ifstream myfile( "d.txt" );
+  ifstream myfile( "zad9.txt" );
   if (myfile)  
     {
     while (getline( myfile, line )){  
