@@ -25,9 +25,23 @@ int bezRek(int liczba, int wykladnik) {
 		}
 		return result*result*liczba;
 	}
-
-
-
+}
+int bezRek2(int liczba, int wykladnik) {
+	// a^1 a^2 a^4 a^8 a^16 i tak dalej dopuki ta liczba nie jest wieksza od wykladnika
+	// a a^10 a^100 a^1000 co lepsze od jednosci do setek
+	// rozklad na liczne binarna 
+	// zadanie z wielomianem 
+	int wynik = 1;
+	
+	while(wykladnik>0)
+	{
+		if (wykladnik%2 == 1) 
+			wynik *= liczba;
+			
+		liczba *= liczba;
+		wykladnik/=2;
+	}
+	return wynik;
 }
 
 int zRek(int liczba, int wykladnik)
@@ -53,6 +67,7 @@ int zRek(int liczba, int wykladnik)
 int main(void)
 {
 	std::cout << bezRek(2, 20) << std::endl;
+	std::cout << bezRek2(2, 20) << std::endl;
 	std::cout << zRek(2, 20) << std::endl;
 	std::cout << std::pow(2, 20) << std::endl;
 	return 0;
