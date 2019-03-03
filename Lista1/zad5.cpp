@@ -29,7 +29,7 @@ int main()
 {
     lnode a;
     a.key = 1;
-    a.next = nullptr;
+    a.next = NULL;
 
     lnode b;
     b.key = 2;
