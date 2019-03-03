@@ -29,8 +29,12 @@ void podaj(vector<int> & _v)
 
 int main()
 {
-    vector<int> V = {10,2,3,4,2,4,-1,-5,34};
-    podaj(V); 
+
+    int myVec1[] = {10,2,3,4,2,4,-1,-5,34};
+
+    vector<int> v1 (myVec1, myVec1 + sizeof(myVec1) / sizeof(int)); 
+    
+    podaj(v1); 
 
     return 0;
 }
