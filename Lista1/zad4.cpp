@@ -13,7 +13,8 @@ double P(double k,double n,double p)
     double wynik = 0.0;
     for(int i = 1;i<k;i++)
     {
-        wynik += fac(n)/(fac(k)*fac(std::abs(n-k)))*pow(p,i)*pow(p,n-i);
+        // wynik += fac(n) / (fac(k)*fac(std::abs(n-k))) * pow(p,i) * pow(p,n-i);
+        wynik += fac(n) / (fac(i)*fac(std::abs(n-i))) * pow(p,i) * pow(p,n-i);
         // std::cout<<wynik<<std::endl;
     }
     return wynik;
