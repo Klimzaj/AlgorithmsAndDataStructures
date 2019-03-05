@@ -51,7 +51,7 @@ int main()
     
     for(int i=0; i< m ;i++)
     {
-        tab[i] = i+1;
+        tab[i] = i;
     }
 
     int szukaj = 500;
