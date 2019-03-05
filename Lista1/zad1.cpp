@@ -26,11 +26,13 @@ int bezRek(int liczba, int wykladnik) {
 		return result*result*liczba;
 	}
 }
-int bezRek2(int liczba, int wykladnik) {
+
 	// a^1 a^2 a^4 a^8 a^16 i tak dalej dopuki ta liczba nie jest wieksza od wykladnika
 	// a a^10 a^100 a^1000 co lepsze od jednosci do setek
 	// rozklad na liczne binarna 
 	// zadanie z wielomianem 
+	
+int bezRek2(int liczba, int wykladnik) {
 	int wynik = 1;
 	
 	while(wykladnik>0)
