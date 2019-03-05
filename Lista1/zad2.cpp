@@ -10,25 +10,32 @@ double f(double d)
 double zero(double func(double), double _a, double _b)
 {
 	// dokladnosc porownania z zerem
-	const double dZero = 0.0000000001;
-	
+	const double dZero = 0.00000000001;
+	double x0, f0, a, b;
+	a = _a;
+	b = _b;
 
-	double fa = f(_a); 
-	double fb = f(_b);
 
-	double x0, f0;
-	x0 = (_a + _b) / 2;
+	double fa = f(a); 
+	double fb = f(b);
+
+	x0 = (a + b) / 2;
+	f0 = f(x0);
 	
-	while (fabs(_a - _b) > dZero)
+	while (fabs(a - b) < dZero)
 	{
-		x0 = (_a + _b) / 2;
+		x0 = (a + b) / 2;
 		f0 = f(x0);
 		
 		if (fabs(f0) < dZero) break;
-		if (fa * f0 < 0) _b = x0;
+
+		if (fa * f0 < dZero)
+		{
+			b = x0;
+		} 
 		else
 		{
-			_a = x0; 
+			a = x0; 
 			fa = f0;
 		}
 	}
@@ -39,8 +46,8 @@ double zero(double func(double), double _a, double _b)
 int main(void)
 {
 	double a, b;
-	a = 2;
-	b = 100;
+	a = 25;
+	b = 3;
 	std::cout << "f(0) : " << f(0) << std::endl;
 	std::cout << "f(1) : " << f(1) << std::endl;
 	std::cout << "Miejsce zerowe: " << zero(f, a, b) << std::endl;
