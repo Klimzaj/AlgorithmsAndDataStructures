@@ -10,14 +10,18 @@ double fac(double n)
 }
 double P(double k,double n,double p)
 {
+    double q = 1.0-p;
     double wynik = 0.0;
+
+    wynik += pow(q,n);
+    
     for(int i = 1;i<k;i++)
     {
-        // wynik += fac(n) / (fac(k)*fac(std::abs(n-k))) * pow(p,i) * pow(p,n-i);
-        wynik += fac(n) / (fac(i)*fac(std::abs(n-i))) * pow(p,i) * pow(p,n-i);
-        // std::cout<<wynik<<std::endl;
+        wynik += fac(n) / (fac(i)*fac(std::abs(n-i))) * pow(p,i) * pow(q,n-i);
     }
     return wynik;
+
+
 }
 
 int main()
