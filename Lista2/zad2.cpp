@@ -28,35 +28,32 @@ void zOstatnim(double _tab[],double _n, int _s,int _i)
     }
     else if(_tab[_i] > _n)
     {
-        zOstatnim(_tab,_tab[_i],--_s,_i+1);
+        zOstatnim(_tab,_tab[_i],--_s,++_i);
     }
     else
     {
-        zOstatnim(_tab,_n,--_s,_i+1);
+        zOstatnim(_tab,_n,--_s,++_i);
     }
 }
 
-void naPol(double _tab[], double _n1, double _n2, int _m, int _i)
+void naPol(double _tab[], double & _n1, double & _n2, int _m, int _i)
 {
-    
-    if(_m%2 == 0)
+    if(_m/2 == _i)
     {
-        if(_m/2 == _i)
-        {
-            cout<<"znalazlem n1: "<<_n1<<" i n2: "<<_n2<<endl;
-        }
-        else
-        {
-            naPol(_tab,(_n1>_tab[_i])?_n1:_tab[_i],(_n2>_tab[_i+_m/2])?_n2:_tab[_i+_m/2],_m,_i+1);
-        }     
+        cout<<"znalazlem n1: "<<_n1<<" i n2: "<<_n2<<endl;
     }
+    else
+    {
+        naPol(_tab , (_n1 > _tab[_i]) ? _n1 : _tab[_i] , (_n2>_tab[_i+_m/2]) ? _n2 : _tab[_i+_m/2] , _m , ++_i);
+    }     
 }
+
 
 int main()
 {
     srand( time( NULL ) );
 
-    int m = 10000;
+    int m = 101;
     double tab[m];
     double n1 = 0;
     double n2 = 0;
@@ -64,7 +61,8 @@ int main()
     
     for(int i=0; i< m ;i++)
     {
-        tab[i] = double (rand() % 1000000);
+        tab[i] = i;
+        // tab[i] = double (rand() % 1000000);
     }
 
     cout << "Pierwszy sposób!"<< endl;
