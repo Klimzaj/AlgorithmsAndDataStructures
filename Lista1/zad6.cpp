@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
+#include <ctime>
 
 using namespace std;
 
@@ -74,6 +76,30 @@ void rekPodajMin(vector<int> _min)
         cout << "Min: " << _min[0] << endl;
     }
 }
+void iterPodajMin(vector<int> _min)
+{
+    vector<int> newMin;
+    vector<int> deltaV = _min;
+    do
+    {      
+        if(deltaV.size()%2==1)
+        {
+            newMin.push_back(deltaV.back());
+        }
+        for(int i = 0; i < deltaV.size()-1 ; i+=2)
+        {
+            if(deltaV[i] < deltaV[i+1])
+            {
+                newMin.push_back(deltaV[i]);
+            }
+            else newMin.push_back(deltaV[i+1]);
+        }
+        deltaV = newMin;
+        newMin.clear();
+
+    }while(deltaV.size() != 1);
+    cout << "Min2: " << deltaV.back() << endl;
+}
 
 void rekPodajMax(vector<int> _max)
 {
@@ -104,6 +130,31 @@ void rekPodajMax(vector<int> _max)
     }
 }
 
+void iterPodajMax(vector<int> _max)
+{
+    vector<int> newMax;
+    vector<int> deltaV = _max;
+    do
+    {      
+        if(deltaV.size()%2==1)
+        {
+            newMax.push_back(deltaV.back());
+        }
+        for(int i = 0; i < deltaV.size()-1 ; i+=2)
+        {
+            if(deltaV[i] > deltaV[i+1])
+            {
+                newMax.push_back(deltaV[i]);
+            }
+            else newMax.push_back(deltaV[i+1]);
+        }
+        deltaV = newMax;
+        newMax.clear();
+
+    }while(deltaV.size() != 1);
+    cout << "Max2: " << deltaV.back() << endl;
+}
+
 void podaj2(vector<int> & _v)
 {
     vector<int> min;
@@ -131,11 +182,12 @@ void podaj2(vector<int> & _v)
         }
         // cout << "Min to: " << podajMin(min) << endl;
         rekPodajMin(min);
-
+        iterPodajMin(min);
         cout << endl;
 
         // cout << "Max to: " << podajMax(max) << endl;
         rekPodajMax(max);
+        iterPodajMax(max);
 
 
 
@@ -148,11 +200,36 @@ int main()
 {
 
     int myVec1[] = {10,49,-30,56,-3,22,-44,29,4,2,3,4,2,4,-1,-5,34,5,-50};
-
     vector<int> v1 (myVec1, myVec1 + sizeof(myVec1) / sizeof(int)); 
     
     // podaj(v1); 
-    podaj2(v1);
+    // podaj2(v1);
+    
+
+
+
+    // your test    
+
+    // clock_t start;
+    // clock_t start2;
+
+    vector<int> v2;
+    int count = 1000000;
+
+    for(int i = 0; i < count; i++)
+    {
+        v2.push_back(i);
+    }
+    std::random_shuffle(v2.begin(),v2.end());
+
+    // start = clock();
+    podaj2(v2);
+    // cout << "Time: " << (clock() - start) / (double)(CLOCKS_PER_SEC / 1000) << " ms" << std::endl;
+
+    // start2 = clock();
+    // podaj(v2);
+    // cout << "Time: " << (clock() - start2) / (double)(CLOCKS_PER_SEC / 1000) << " ms" << std::endl;
+    
 
     return 0;
 }
