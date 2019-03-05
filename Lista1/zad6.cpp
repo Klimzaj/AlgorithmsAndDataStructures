@@ -26,6 +26,24 @@ void podaj(vector<int> & _v)
     cout<<"max: "<<max<<endl;
 }
 
+// int podajMin(vector<int> & _v)
+// {
+//     int min = _v[0];
+
+//     for(int i = 1; i < _v.size(); i++)
+//     {
+//         min = (min < _v[i]) ? min : _v[i];
+//     }
+//     return min;
+// }   
+// int podajMax(vector<int> & _v)
+// {
+//     int max = _v[0];
+//     for(int i = 1; i < _v.size(); i++)
+//     {
+//         max = (max > _v[i]) ? max : _v[i];
+//     }
+// }
 void rekPodajMin(vector<int> _min)
 {
     if(_min.size() != 1)
@@ -96,6 +114,7 @@ void podaj2(vector<int> & _v)
     if(sizeV % 2 == 1)
     {
         max.push_back(_v.back());
+        min.push_back(_v.back());
     }
         for(int i = 0; i < sizeV-1; i+= 2)
         {
@@ -110,10 +129,17 @@ void podaj2(vector<int> & _v)
                 min.push_back(_v[i]);
             }
         }
-
+        // cout << "Min to: " << podajMin(min) << endl;
         rekPodajMin(min);
+
         cout << endl;
+
+        // cout << "Max to: " << podajMax(max) << endl;
         rekPodajMax(max);
+
+
+
+    
 }
 
 
@@ -121,10 +147,10 @@ void podaj2(vector<int> & _v)
 int main()
 {
 
-    int myVec1[] = {10,2,3,4,2,4,-1,-5,34,5};
+    int myVec1[] = {10,49,-30,56,-3,22,-44,29,4,2,3,4,2,4,-1,-5,34,5,-50};
+
     vector<int> v1 (myVec1, myVec1 + sizeof(myVec1) / sizeof(int)); 
     
-
     // podaj(v1); 
     podaj2(v1);
 
