@@ -27,7 +27,7 @@ int iloczynSkalarny(vector<int> & _a, vector<int> & _b)
     cout<<"Iloczyn skalarny wykona " << iloscMnozen << " mnożeń, przy n = " << _a.size()<< endl;
     return wynik;    
 }
-
+// (n+1)n / 2 mnożeń O(n^2)
 int wartoscWielomianu(vector<int> & _a, int _val)
 {
     int wynik = 0;
@@ -43,7 +43,7 @@ int wartoscWielomianu(vector<int> & _a, int _val)
     cout<<"Wyliczając wartość wielomianu wykonamy " << iloscMnozen << " mnożeń, przy stopniu n = " << _a.size()<< endl;
     return wynik;
 }
-
+// N^2 mnożeń
 int iloczynWielomianow(vector<int> & _a, vector<int> & _b, int val)
 {
     int wynik = 0;
@@ -63,6 +63,8 @@ int iloczynWielomianow(vector<int> & _a, vector<int> & _b, int val)
     }
     cout << "Wyliczając iloczyn wielominaów wykonamy "<< iloscMnozen << " mnożeń, przy tym samym stopniu n = " << _a.size()<< endl; 
 }
+
+// N^3 mnożeń
 void iloczynMacierzy(int _a[][2], int _b[][2], int _c[][2], int _size)
 {
     int iloscMnozen = 0;
@@ -82,6 +84,7 @@ void iloczynMacierzy(int _a[][2], int _b[][2], int _c[][2], int _size)
 }
 
 
+// N! mnożen
 
 // int wyznacznikMacierzy(int _a[][3], int _size)
 // {
@@ -159,7 +162,7 @@ int main()
         cout<<endl;
     }
     cout<<endl;
-    cout << "licząc wyznacznik macierzy o rozmiarze 3x3 wykonamy 12 mnożeń"<< endl; 
+    cout << "licząc wyznacznik macierzy o rozmiarze nXn wykonamy n! mnożeń"<< endl; 
     // cout << "wyznacznik macierzy " <<wyznacznikMacierzy(m4,3) << endl;
 
     return 0;

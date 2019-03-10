@@ -9,7 +9,7 @@ void wypisz(int t[], int n)
 }
 
 void przesuniecie(int t[], int k, int n) {
-    for (int j = 0; j < k; j++) {
+    for (int j = 0; j < (k > n ? n % k : k ); j++) {
         int temp = t[n - 1];
         int temp1;
         for (int i = 0; i < n; i++) {
