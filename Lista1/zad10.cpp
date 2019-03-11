@@ -35,13 +35,13 @@ public:
         {
             this->key = new kolejkaPr<T>(_val);
         }
-        else if(_val < this->value && this->key != NULL)
+        else if(_val <= this->value && this->key != NULL)
         {
 
             _a->key = new kolejkaPr<T>(_val,this);
 
         }
-        else if(_val < this->value && this->key == NULL)
+        else if(_val <= this->value && this->key == NULL)
         {
             // T temp = this->value;
             this->key = new kolejkaPr<T>(this->value);
