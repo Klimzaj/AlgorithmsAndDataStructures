@@ -76,11 +76,8 @@ void remove(node *& _t, int _x)
 			node* temp = (*delta)->left;
 			delete *delta;
 			(*delta) = temp;
-		}
-		
+		}	
 	}
-
-
 }
 
 // void remove(node *& t, int x)
