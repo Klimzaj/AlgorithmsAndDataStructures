@@ -160,7 +160,7 @@ public:
     }
 };
 
-// FILO
+// LIFO
 template <typename T> 
 class stos{
 private:
