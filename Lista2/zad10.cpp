@@ -125,11 +125,31 @@ int main()
     node* root = NULL;
     insert(root,7);
     insert(root,8);
-    // insert(root,6);
     insert(root,9);
 	cout << root->x << " " << root->right->x << " "<< root->right->right->x << endl; 
 	remove(root,8);
 	cout << root->x << " " << root->right->x << endl; 
+
+	cout << endl;
+
+	node* root2 = NULL;
+    insert(root2,7);
+    insert(root2,9);
+    insert(root2,8);
+    insert(root2,10);
+	cout << root2->x << " " << root2->right->x << " "<< root2->right->right->x << endl; 
+	remove(root2,9);
+	cout << root2->x << " " << root2->right->x << endl; 
+
+	cout << endl;
+
+	node* root3 = NULL;
+    insert(root3,7);
+    insert(root3,9);
+    insert(root3,11);
+	cout << root3->x << " " << root3->right->x << " "<< root3->right->right->x << endl; 
+	remove(root3,11);
+	cout << root3->x << " " << root3->right->x << endl; 
 
     return 0;
 }
