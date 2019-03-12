@@ -46,14 +46,29 @@ void remove(node *& _t, int _x)
 
     if(*temp)
     {
-        if((*temp)->left && (*temp)->right)
-        {
-            node **delta=&((*temp)->right);
-			while ((*delta)->left)
-				delta=&((*delta)->left);
-			(*temp)->x=(*delta)->x;
-			temp=delta;
-        }
+        if((*delta)->left && (*delta)->right)
+		{
+			node **temp=&((*delta)->left);
+			temp=&((*temp)->left);
+
+			while ((*temp)->right)
+				temp=&((*temp)->right);
+
+			(*delta)->x=(*temp)->x;
+			(*delta)->left=(*temp)->left;
+			(*delta)->right=(*temp)->right;
+
+			// delta=temp;
+			delete temp;
+		}
+        // if((*temp)->left && (*temp)->right)
+        // {
+        //     node **delta=&((*temp)->right);
+		// 	while ((*delta)->left)
+		// 		delta=&((*delta)->left);
+		// 	(*temp)->x=(*delta)->x;
+		// 	temp=delta;
+        // }
         else if((*temp)->left == NULL && (*temp)->right == NULL)
         {
             if((*parent)->left->x == _x)
@@ -64,10 +79,7 @@ void remove(node *& _t, int _x)
             {
                  (*parent)->right = NULL;
             }
-            delete *
-            
-            // if((*temp)->parent)
-            // (*temp)->parent->
+            delete *temp;
         }
         else if((*temp)->left == NULL)
         {
@@ -89,7 +101,7 @@ void remove(node *& _t, int _x)
 int main()
 {
     node* root = NULL;
-    insert
+    // insert
 
     return 0;
 }

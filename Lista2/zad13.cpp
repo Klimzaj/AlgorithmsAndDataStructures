@@ -25,7 +25,7 @@ void insert(node *& t, int x)
 	*t1=new node(x);
 }  
 
-void inorder_do(node * _t, void _f(node *))
+void inorder(node * _t, void _f(node *))
 {
     node *temp = _t;
 
@@ -57,6 +57,6 @@ int main()
     insert(root,8);
     insert(root,7);
     insert(root,9);
-    inorder_do(root,[](node* x) {myPrint(x);} );
+    inorder(root,[](node* x) {myPrint(x);} );
     return 0;
 }

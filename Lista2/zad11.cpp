@@ -30,11 +30,18 @@ void remove(node *& _t, int _x)
 	{
 		if((*delta)->left && (*delta)->right)
 		{
-			node **temp=&((*delta)->right);
-			while ((*temp)->left)
-				temp=&((*temp)->left);
+			node **temp=&((*delta)->left);
+			temp=&((*temp)->left);
+
+			while ((*temp)->right)
+				temp=&((*temp)->right);
+
 			(*delta)->x=(*temp)->x;
-			delta=temp;
+			(*delta)->left=(*temp)->left;
+			(*delta)->right=(*temp)->right;
+
+			// delta=temp;
+			delete temp;
 		}
         else if((*delta)->left == NULL && (*delta)->right == NULL)
         {
