@@ -31,9 +31,9 @@ void inorder(node * _t, void _f(node *))
 
     if(temp)
     {
-        inorder_do(temp->left,_f);
+        inorder(temp->left,_f);
         _f( temp);
-        inorder_do(temp->right,_f);
+        inorder(temp->right,_f);
     }
 }
 
