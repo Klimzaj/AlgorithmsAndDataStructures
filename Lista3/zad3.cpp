@@ -15,23 +15,6 @@ public:
 	node(const node& other)
 		: next(other.next), value(other.value)
 	{}
-
-	node& operator=(const node& other)
-	{
-		if (this == &other)
-			return *this;
-		next = other.next;
-		value = other.value;
-		return *this;
-	}
-	node& operator=(const node*& other)
-	{
-		if (this == other)
-			return *this;
-		next = other->next;
-		value = other->value;
-		return *this;
-	}
 };
 
 void insertion_sort(node *& list)
